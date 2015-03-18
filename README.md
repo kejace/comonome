@@ -1,0 +1,2 @@
+# comonome
+comonads for monomes
