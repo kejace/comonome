@@ -25,9 +25,9 @@ sendSomeOsc = do
   putStrLn $ "Sending some OSC on " ++ show port
   let t = OSC.udpServer "127.0.0.1" port
   let msg = OSC.Message "/comonome/status" (fmap (OSC.ASCII_String . BS.pack) ["hello"])
-  OSC.sendMessage "/"
+  --Sound.OSC.Transport.FD.withTransport t $ \t -> void $ OSC.untilPredicate not {-should be not-} $ do
+  --  msgs <- Sound.OSC.Transport.FD.sendMessage msg t
   return ()
-  -- Sound.OSC.Transport.FD.sendMessage msg
 
 main :: IO ()
 main = sendSomeOsc
