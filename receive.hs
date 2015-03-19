@@ -6,6 +6,9 @@
 import Control.Concurrent
 import Control.Monad
 
+import           Data.ByteString.Char8            (ByteString (..))
+import qualified Data.ByteString.Char8            as BS
+
 import           Data.List                        (isPrefixOf)
 import qualified Sound.OSC                        as OSC
 import qualified Sound.OSC.Transport.FD
@@ -30,7 +33,7 @@ isQuitMessage m = "/comonome/quit" `isPrefixOf` OSC.messageAddress m
 statusHandler :: Handler
 statusHandler m = when ("/comonome/status" `isPrefixOf` OSC.messageAddress m) $
   -- TODO print more info
-  putStrLn "Fluent is alright"
+  putStrLn "Comomoe is getting it"
 
 
 main :: IO ()

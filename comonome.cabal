@@ -15,10 +15,16 @@ build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
-executable comonome
-  -- main-is:             
+executable sender
+  main-is: sender.hs     
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.7 && <4.8, comonad >=4.2 && <4.3
+  build-depends:       base >=4.7 && <4.8, comonad >=4.2 && <4.3, hosc, bytestring, unix
+  -- hs-source-dirs:      
+  default-language:    Haskell2010
+
+executable receive
+  main-is: receive.hs
+  build-depends:       base >=4.7 && <4.8, comonad >=4.2 && <4.3, hosc, bytestring, unix
   -- hs-source-dirs:      
   default-language:    Haskell2010
